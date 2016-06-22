@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment1</string>
+    <string name="location0">kms from Pidilite Industries Limited</string>
+    <string name="location1">kms from Andheri Metro Station</string>
+    <string name="location2">kms from Shoppers Stop, Andheri West</string>
+    <string name="location3">kms from AWHO, Sandeep Vihar</string>
+    <string name="location4">kms from Forum Value Mall</string>
+    <string name="atLocationText">You are currently at</string>
+</resources>
