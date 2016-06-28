@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     static MainActivity getInstance(){
         return ins;
     }
