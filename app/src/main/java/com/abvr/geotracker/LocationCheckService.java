@@ -1,4 +1,4 @@
-package vr.com.assignment1;
+package com.abvr.geotracker;
 
 import android.Manifest;
 import android.app.Notification;
@@ -22,11 +22,11 @@ import java.math.BigDecimal;
 public class LocationCheckService extends Service implements LocationListener {
     LocationManager manager;
     String TAG = "LocationCheckService";
-    private static final int TWO_MINUTES = 1000 * 60 * 3;
-    public final String BROADCAST_ACTION = "vr.com.assignment1.BROADCAST_LOCATION";
+    private static final int THREE_MINUTES = 1000 * 60 * 3;
+    public final String BROADCAST_ACTION = "vr.com.assignment.BROADCAST_LOCATION";
     TinyDB tinyDB ;
     Location lastLocation;
-    long LOCATION_INTERVAL = 5000;
+    long LOCATION_INTERVAL = 4000;
     float LOCATION_DISTANCE = 10;
     String[] locations = {"Pidilite Industries Limited", "Andheri Metro Station",
             "Shoppers Stop, Andheri West", "AWHO, Sandeep Vihar",
@@ -35,7 +35,7 @@ public class LocationCheckService extends Service implements LocationListener {
             {19.120628, 72.848491}, {19.115218, 72.842487},
             {13.022401, 77.759835}, {12.959504, 77.747890}};
 
-    double MIN_DISTANCE = 5;
+    double MIN_DISTANCE = 1000;
 
     public LocationCheckService() {
     }
@@ -102,8 +102,8 @@ public class LocationCheckService extends Service implements LocationListener {
             return true;
         }
         long timeDelta = location.getTime() - lastLocation.getTime();
-        boolean isSignificantlyNewer = timeDelta > TWO_MINUTES;
-        boolean isSignificantlyOlder = timeDelta < -TWO_MINUTES;
+        boolean isSignificantlyNewer = timeDelta >= THREE_MINUTES;
+        boolean isSignificantlyOlder = timeDelta <= -THREE_MINUTES;
 
         if (isSignificantlyNewer) {
             return true;
@@ -112,7 +112,7 @@ public class LocationCheckService extends Service implements LocationListener {
         }
 
         int accuracyDelta = (int) (location.getAccuracy() - lastLocation.getAccuracy());
-        return accuracyDelta < 0;
+        return accuracyDelta <= 0;
 
     }
 
@@ -124,8 +124,8 @@ public class LocationCheckService extends Service implements LocationListener {
             lastLocation = new Location(location);
             Intent intent = new Intent();
             intent.setAction(BROADCAST_ACTION);
-            sendBroadcast(intent);
             checkNewLocation();
+            sendBroadcast(intent);
         }
     }
 
@@ -151,7 +151,6 @@ public class LocationCheckService extends Service implements LocationListener {
             if (distances[i]<=MIN_DISTANCE){
                 tinyDB.putBoolean(MainActivity.AT_LOCATION,true);
                 tinyDB.putInt(MainActivity.CURRENT_LOCATION_VALUE,i);
-                tinyDB.putDouble(MainActivity.DISTANCE+i,0);
                 showNotification(i);
                 break;
             }

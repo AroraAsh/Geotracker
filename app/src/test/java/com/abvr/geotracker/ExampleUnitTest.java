@@ -1,4 +1,4 @@
-package vr.com.assignment1;
+package com.abvr.geotracker;
 
 import org.junit.Test;
 

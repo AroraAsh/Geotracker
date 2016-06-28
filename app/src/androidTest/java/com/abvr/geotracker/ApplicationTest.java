@@ -1,4 +1,4 @@
-package vr.com.assignment1;
+package com.abvr.geotracker;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

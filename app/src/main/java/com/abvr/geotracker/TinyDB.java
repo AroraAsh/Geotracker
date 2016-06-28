@@ -19,7 +19,7 @@
  *  and unicode 2017 that are used for separating the items in a list.
  */
 
-package vr.com.assignment1;
+package com.abvr.geotracker;
 
 import java.io.File;
 import java.io.FileOutputStream;

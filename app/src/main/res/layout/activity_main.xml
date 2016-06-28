@@ -8,47 +8,48 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="vr.com.assignment1.MainActivity">
+    tools:context="com.abvr.geotracker.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/location1TextView"
         android:layout_marginTop="@dimen/textViewMarginTop"
-        android:text="Hello World!" />
+        android:text="@string/location0" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/location2TextView"
         android:layout_marginTop="@dimen/textViewMarginTop"
-        android:text="Hello World!" />
+        android:text="@string/location1" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/location3TextView"
         android:layout_marginTop="@dimen/textViewMarginTop"
-        android:text="Hello World!" />
+        android:text="@string/location2" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/location4TextView"
         android:layout_marginTop="@dimen/textViewMarginTop"
-        android:text="" />
+        android:text="@string/location3" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/location5TextView"
         android:layout_marginTop="@dimen/textViewMarginTop"
-        android:text="Hello World!" />
+        android:text="@string/location4" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/currentLocationTextView"
-        android:layout_marginTop="@dimen/textViewMarginTop"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/currentLocztionTextviewMarginTop"
         android:text="@string/atLocationText" />
 </LinearLayout>
